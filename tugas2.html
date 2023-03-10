@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 2 JS</title>
+</head>
+<body>
+    
+</body>
+
+<script>
+
+    let nama_pegawai = "Abdullah Hafiz";
+    let jabatan = "Manager";
+    let alamat = "Jl. Cemara 1 Pamulang Barat";
+    let usia = 22;
+    let status = "Belum Menikah";
+    let email = "hafiz.fadlillah12341@gmail.com"
+
+    if (jabatan == 'Manager'){
+        pokok = 10000000;
+    }
+    else if (jabatan == 'asisten_manager'){
+        pokok = 8000000;
+    }
+    else if (jabatan == 'staff'){
+        pokok = 5000000;
+    }
+    else {
+        pokok = "0";
+    }
+
+    let gaji = 1;
+    let gaji_pokok = gaji* pokok;
+    let tunjangan_jabatan = (jabatan == 'Manager') ? 0.1 * gaji_pokok : 0;
+    let bpjs = (jabatan == 'Manager') ? 0.1 * gaji_pokok : 0;
+    let tunjangan_berkeluarga = (jabatan == 'Manager') ? 0.1 * gaji_pokok : 0;
+
+    let total_gaji = gaji_pokok + tunjangan_jabatan + bpjs + tunjangan_berkeluarga;
+
+    document.write("Pegawai : &nbsp" + nama_pegawai);
+    document.write("<br>");
+    document.write("Jabatan : &nbsp" + jabatan);
+    document.write("<br>");
+    document.write("Alamat : &nbsp" + alamat);
+    document.write("<br>");
+    document.write("Usia : &nbsp" + usia + " tahun");
+    document.write("<br>");
+    document.write("Status : &nbsp" + status);
+    document.write("<br>");
+    document.write("Emial : &nbsp" + email);
+
+    document.write("<br>");
+    document.write("<br>");
+    document.write("Gaji Pokok : &nbsp" + gaji_pokok);
+    document.write("<br>");
+    document.write("Tunjangan Jabatan : &nbsp" + tunjangan_jabatan);
+    document.write("<br>");
+    document.write("BPJS Kesehatan: &nbsp" + bpjs);
+    document.write("<br>");
+    document.write("Tunjangan Keluarga : &nbsp" + tunjangan_berkeluarga + "*");
+    document.write("<hr>");
+    document.write("Total Gaji : &nbsp" + total_gaji);
+
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+    document.write("<br>");
+    document.write(" Keterangan : *JIKALAU SUDAH BERKELUARGA")
+</script>
+</html>
