@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas 4 JS</title>
+    <link rel="stylesheet" href="css/tugas4.css">
+</head>
+<body>
+
+
+    <form id="kalkulator">
+        <table>
+            <p class="judul">Kalkulator</p>
+            <tbody>
+                <tr>
+                    <td>Angka 1 </td>
+                    <td><input type="text" class="input" name="angka" placeholder="masukan angka pertama"></td>
+                </tr>
+                <tr>
+                    <td>Angka 2 </td>
+                    <td><input type="text" class="input" name="angka2" placeholder="masukan angka kedua"></td>
+                </tr>
+                <tr>
+                    <td>Hasil </td>
+                    <td> <input type="text" class="input" name="hasil" value="" disabled> </td>
+                </tr>
+            </tbody>
+        </table>
+    
+        <button type="button" name="btn_tambah" onclick="tambah()">+</button>
+        <button type="button" name="btn_tambah" onclick="kurang()">-</button>
+        <button type="button" name="btn_tambah" onclick="kali()">*</button>
+        <button type="button" name="btn_tambah" onclick="bagi()">/</button>
+        <button type="button" name="btn_tambah" onclick="pangkat()">^</button>
+
+
+    </form>
+    <h3 id="ket"></h3>
+</body>
+<script src="js/kalkulator.js"></script>
+
+    <!-- <table id="kalkulator">
+        <thead class="calculator"> KALKULATOR </thead>
+        <tbody>
+            <tr>
+                <th>Angka 1 : </th>
+                <th> <input type="text" name="angka" placeholder="masukan angka pertama"></th>
+            </tr>
+            <tr>
+                <th>Angka 2 : </th>
+                <th>  <input type="text" name="angka2" placeholder="masukan angka kedua"></th>
+            </tr>
+            <tr>
+                <th>Hasil : </th>
+                <th><input type="text" name="hasil" value="" disabled></th>
+            </tr>
+            <tr>
+                
+            </tr>
+        </tbody>
+        <button type="button" name="btn_tambah" onclick="tambah()">+</button>
+        <button type="button" name="btn_tambah" onclick="kurang()">-</button>
+        <button type="button" name="btn_tambah" onclick="kali()">*</button>
+        <button type="button" name="btn_tambah" onclick="bagi()">/</button>
+        <button type="button" name="btn_tambah" onclick="pangkat()">^</button>
+    </table> -->
+</html>
+
+
+    
