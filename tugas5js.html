@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    body{
+        background-image:url(img/bg-gi.png);
+    }
+    img{
+        width: 18%;
+        position: relative;
+        align-items: center;
+        margin-top: 45px;
+    }
+    #gambar2{
+        width: 17%;
+        margin-left: 30px;
+    }
+    #gambar3{
+        width: 20%;
+        margin-left: 30px;
+    }
+    button{
+        width: 13%;
+        margin:auto;
+        background-color: rgb(64, 64, 133);
+        color: azure;
+        font-size: small;
+        border-radius: 25%;
+        box-sizing: border-box;
+    }
+
+</style>
+<body>
+    
+    <img id="gambar" src="img/mamang-removebg-preview.png" alt="Kazuha Memegang Daun" onclick="myFunction">
+    <img id="gambar2" src="img/mamang_2-removebg-preview.png" alt="Kazuha Makan Permen">
+    <img id="gambar3" src="img/ayaka_latihan-removebg-preview.png" alt="Ayaka Latihan Pedang">
+    
+    <button id="show">Munculkan Gambar</button>
+</body>
+    <script src="js/jquery-3.6.4.js"></script>
+    <script>
+
+        // $(document).ready(function(){
+        //     $("img").click(function(){
+        //         $("img").hide();
+        //     });
+        // });
+        //     $("#show").click(function(){
+        //         $("img").show();
+        // });
+        $(document).ready(function(){
+            $("#gambar").click(function(){
+                $("#gambar").hide();
+            });
+        });
+        $(document).ready(function(){
+            $("#gambar2").click(function(){
+                $("#gambar2").hide();
+            });
+        });
+        $(document).ready(function(){
+            $("#gambar3").click(function(){
+                $("#gambar3").hide();
+            });
+        });
+            $("#show").click(function(){
+                $("img").show();
+        });
+   </script>
+</html>
