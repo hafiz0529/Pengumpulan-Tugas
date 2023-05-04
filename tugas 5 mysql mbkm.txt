@@ -1,0 +1,75 @@
+1. prosedur input pelanggan
+
+delimiter $$
+create procedure inputPelanggan(kode char(10), nama_pelanggan varchar(45), jk char(1), tmp_lahir varchar(30), tgl_lahir date, email varchar(45), id_k int)
+begin
+insert into pelanggan (kode, nama, jk, tmp_lahir, tgl_lahir, email, kartu_id)
+values (kode, nama_pelanggan, jk, tmp_lahir, tgl_lahir, email, id_k);
+end$$
+delimiter $$
+
+call inputPelanggan('C007', 'Melati Pratiwi', 'P', 'Semarang', '20002-09-23', 'melati02@gmail.com', 2);
+
+2. prosedur show pelanggan
+
+delimiter $$
+create procedure showPelanggan()
+begin
+select * from pelanggan;
+end $$
+delimiter;
+
+call showPelanggan();
+
+3. prosedur input produk
+
+MariaDB [db_koperasi]> delimiter $$
+MariaDB [db_koperasi]> create procedure inputProduk(kode varchar(10), nama varchar(45), harga_beli double, harga_jual double, stok int, min_stok int, jp_id int)
+    -> begin
+    -> insert into produk(kode, nama, harga_beli, harga_jual, stok, min_stok, jenis_produk_id)
+    -> values (kode, nama, harga_beli, harga_jual, stok, min_stok, jp_id);
+    -> end$$
+MariaDB [db_koperasi]> delimiter ;
+MariaDB [db_koperasi]> call inputProduk('L008', 'Laptop DELL', 5000000, 6250000, 15, 4, 5);
+
+4. prosedur show produk
+
+MariaDB [db_koperasi]> delimiter $$
+MariaDB [db_koperasi]> create procedure showProduk()
+    -> begin
+    -> select * from produk;
+    -> end$$
+MariaDB [db_koperasi]> delimiter ;
+MariaDB [db_koperasi]> call showProduk;
+
+5. prosedur total pesanan 
+
+MariaDB [db_koperasi]> DELIMITER $$
+MariaDB [db_koperasi]> CREATE PROCEDURE getTotalOrder()
+    -> BEGIN
+    -> DECLARE totalOrder INT DEFAULT 0;
+    -> SELECT COUNT(*) INTO totalOrder FROM pesanan;
+    -> SELECT totalOrder;
+    -> END $$
+MariaDB [db_koperasi]> delimiter ;
+MariaDB [db_koperasi]> call getTotalorder();
+
+6. tampilkan seluruh pesanan dari semua pelanggan
+
+MariaDB [db_koperasi]> CREATE VIEW vw_pesanan_pelanggan
+    -> as select a.id, a.tanggal, a.total, b.kode, b.nama as nama_pelanggan
+    -> from pesanan a inner join pelanggan b
+    -> on a.pelanggan_id = b.id;
+
+MariaDB [db_koperasi]> select * from vw_pesanan_pelanggan;
+
+7. buatkan query panjang di atas menjadi sebuah view baru: pesanan_produk_vw
+
+MariaDB [db_koperasi]> CREATE OR REPLACE VIEW vw_detail_pesanan_pelanggan
+    -> as select a.id, a.tanggal, a.total, b.nama as 'nama pelanggan', c.kode, c.nama as 'nama produk',
+    -> d.nama as 'jenis produk', e.qty, e.harga
+    -> from pesanan a inner join pelanggan b on a.pelanggan_id = b.id inner join pesanan_items e on
+    -> a.id = e.pesanan_id inner join produk c on e.produk_id = c.id inner join jenis_produk d on
+    -> c.jenis_produk_id = d.id;
+
+ select * from vw_detail_pesanan_pelanggan;
